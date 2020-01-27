@@ -14,7 +14,7 @@ CREATE TABLE products
     id    INTEGER PRIMARY KEY AUTOINCREMENT,
     name  TEXT    NOT NULL UNIQUE,
     price INTEGER NOT NULL CHECK ( price > 0 ),
-    qty   INTEGER NOT NULL CHECK ( qty > 0 )
+    qty   INTEGER NOT NULL CHECK ( qty >= 0 )
 );
 
 CREATE TABLE sales
@@ -25,6 +25,7 @@ CREATE TABLE sales
 
 create table sale_products
 (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
     sale_id    integer not null references sales,
     product_id INTEGER NOT NULL REFERENCES products,
     qty        INTEGER NOT NULL CHECK ( qty > 0 ),
