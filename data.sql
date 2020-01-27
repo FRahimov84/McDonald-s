@@ -19,6 +19,8 @@ values (4),
        (3),
        (6);
 
+drop table sale_products;
+
 insert into sale_products(sale_id, product_id, qty, price)
 values (1,1,2,200),
        (1,6,1,100),
